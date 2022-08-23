@@ -8,6 +8,7 @@
 #include <QSqlQueryModel>
 #include <QSqlRecord>
 #include <QSqlField>
+#include <QTime>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,7 +20,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonUseDB->setEnabled(false);
     ui->pushButtonSelectAllFromTable->setEnabled(false);
     ui->pushButtonCreateTable->setEnabled(false);
+    ui->pushButtonInsertTestData->setEnabled(false);
     qDebug() <<  QSqlDatabase::drivers();
+
+    QTime time;
+    time= QTime::currentTime();
+    qsrand(time.msec()+time.second()*1000);
+
 }
 
 MainWindow::~MainWindow()
@@ -89,7 +96,7 @@ void MainWindow::on_pushButtonCreateTable_clicked()
 {
     QSqlQuery query;
     if(query.exec("CREATE TABLE BATCH_NO(b_no varchar(20) not null primary key);")){
-        ui->plainTextEditLog->appendPlainText("sql语句运行成功,暂时无法查看返回值");
+        ui->plainTextEditLog->appendPlainText("创表成功");
 
     }else{
         ui->plainTextEditLog->appendPlainText("创建新表失败 :"+query.lastError().text());
@@ -102,10 +109,10 @@ void MainWindow::on_pushButtonUseDB_clicked()
     QString sql = "use "+dbname;
     QSqlQuery query;
     if(query.exec(sql)){
-        ui->plainTextEditLog->appendPlainText("选中db成功");
+        ui->plainTextEditLog->appendPlainText("选中db成功："+dbname );
         ui->pushButtonCreateTable->setEnabled(true);
         ui->pushButtonSelectAllFromTable->setEnabled(true);
-
+        ui->pushButtonInsertTestData->setEnabled(true);
     }else{
         ui->plainTextEditLog->appendPlainText("sql语句:"+sql+"运行失败 :"+query.lastError().text());
     }
@@ -134,6 +141,24 @@ void MainWindow::on_pushButtonSelectAllFromTable_clicked()
     }
 
     if(model.rowCount() == 0){
-        ui->plainTextEditLog->appendPlainText("空表或表名错误");
+        ui->plainTextEditLog->appendPlainText("空表或无此表");
     }
+}
+//插入测试数据
+void MainWindow::on_pushButtonInsertTestData_clicked()
+{
+    QSqlQueryModel model;
+    QString tablename = ui->lineEditTableName->text();
+
+    QString sql = QString("Insert into %1 value(%2) ").arg("BATCH_NO")
+            .arg("\"Test114514Test-"+QString::number(rand()%99999) + " \" ");
+
+    QSqlQuery query;
+    if(query.exec(sql)){
+        ui->plainTextEditLog->appendPlainText("插入测试数据成功");
+
+    }else{
+        ui->plainTextEditLog->appendPlainText("sql语句:"+sql+"运行失败 :"+query.lastError().text());
+    }
+
 }

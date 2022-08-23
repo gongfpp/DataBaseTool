@@ -26,6 +26,8 @@ private slots:
 
     void on_pushButtonSelectAllFromTable_clicked();
 
+    void on_pushButtonInsertTestData_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>664</width>
-    <height>678</height>
+    <width>740</width>
+    <height>599</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -102,7 +102,7 @@
        <item>
         <widget class="QPushButton" name="pushButtonUseDB">
          <property name="text">
-          <string>使用</string>
+          <string>选库</string>
          </property>
         </widget>
        </item>
@@ -121,16 +121,23 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButtonSelectAllFromTable">
+        <widget class="QPushButton" name="pushButtonCreateTable">
          <property name="text">
-          <string>查全表</string>
+          <string>新建BATCH_NO表</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButtonCreateTable">
+        <widget class="QPushButton" name="pushButtonInsertTestData">
          <property name="text">
-          <string>新建BATCH_NO表</string>
+          <string>插测试数据</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonSelectAllFromTable">
+         <property name="text">
+          <string>查全表</string>
          </property>
         </widget>
        </item>
@@ -175,7 +182,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>664</width>
+     <width>740</width>
      <height>25</height>
     </rect>
    </property>
