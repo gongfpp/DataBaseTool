@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -14,6 +14,17 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private slots:
+    void on_pushButtonConnect_clicked();
+
+    void on_pushButtonSQLExecute_clicked();
+
+    void on_pushButtonCreateTable_clicked();
+
+    void on_pushButtonUseDB_clicked();
+
+    void on_pushButtonSelectAllFromTable_clicked();
 
 private:
     Ui::MainWindow *ui;

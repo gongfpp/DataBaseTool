@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>601</width>
-    <height>543</height>
+    <width>664</width>
+    <height>678</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Mysql小工具</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -30,7 +30,7 @@
           <item>
            <widget class="QLineEdit" name="lineEditDBAddr">
             <property name="text">
-             <string>localhost:3306</string>
+             <string>127.0.0.1</string>
             </property>
            </widget>
           </item>
@@ -44,7 +44,11 @@
          </property>
          <layout class="QGridLayout" name="gridLayout">
           <item row="0" column="0">
-           <widget class="QLineEdit" name="lineEditUserName"/>
+           <widget class="QLineEdit" name="lineEditUserName">
+            <property name="text">
+             <string>root</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -56,7 +60,11 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QLineEdit" name="lineEditUserPassword"/>
+           <widget class="QLineEdit" name="lineEditUserPassword">
+            <property name="text">
+             <string>root</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -80,34 +88,49 @@
        <item>
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>库</string>
+          <string>库名</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEditDBName"/>
+        <widget class="QLineEdit" name="lineEditDBName">
+         <property name="text">
+          <string>JL_1</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pushButtonUseDB">
          <property name="text">
-          <string>使用该数据库</string>
+          <string>使用</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>表</string>
+          <string>表名</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEditTableName"/>
+        <widget class="QLineEdit" name="lineEditTableName">
+         <property name="text">
+          <string>BATCH_NO</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pushButtonSelectAllFromTable">
          <property name="text">
           <string>查全表</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonCreateTable">
+         <property name="text">
+          <string>新建BATCH_NO表</string>
          </property>
         </widget>
        </item>
@@ -126,7 +149,7 @@
        <item>
         <widget class="QPushButton" name="pushButtonSQLExecute">
          <property name="text">
-          <string>启动</string>
+          <string>运行SQL语句(暂时不支持)</string>
          </property>
         </widget>
        </item>
@@ -152,8 +175,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>601</width>
-     <height>26</height>
+     <width>664</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>
